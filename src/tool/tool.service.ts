@@ -14,8 +14,8 @@ export class ToolService {
     return await this.toolRepository.find();
   }
 
-  async findOne(id: number): Promise<ToolEntity> {
-    return await this.toolRepository.findOne(id);
+  async searchToolsByTag(tag: string): Promise<ToolEntity> {
+    return await this.toolRepository.findOne(tag);
   }
 
   async create(tool: ToolEntity): Promise<ToolEntity> {
