@@ -1,8 +1,8 @@
 {
   "name": "loja-ferramentas",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Desafio de back-end do bossa box",
+  "author": "Valdery Alves Paes Júnior <valdery.jur@gmail,com>",
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -19,6 +19,12 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
+  "keywords": [
+    "nestjs-backend",
+    "sql",
+    "postgresql",
+    "typescript"
+  ],
   "dependencies": {
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
