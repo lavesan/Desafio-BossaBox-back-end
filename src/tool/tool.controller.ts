@@ -21,8 +21,8 @@ export class ToolsController {
   }
 
   @Post()
-  async create(@Body() userData: ToolEntity): Promise<any> {
-    return this.toolService.create(userData);
+  async create(@Body() toolData: ToolEntity): Promise<any> {
+    return this.toolService.create(toolData);
   }
 
   @Delete(':id')

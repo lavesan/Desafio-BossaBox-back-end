@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ToolService } from './tool.service';
+import { ToolsController } from './tool.controller';
+import { ToolEntity } from '../entityes/tool.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ToolModule } from './tool/tool.module';
 
 @Module({
-  imports: [
+    imports: [
+    TypeOrmModule.forFeature([ToolEntity]),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -18,7 +19,6 @@ import { ToolModule } from './tool/tool.module';
     }),
     ToolModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
-})
-export class AppModule {}
+  controllers: [ToolsController],
+  providers: [ToolService],})
+export class ToolModule {}
