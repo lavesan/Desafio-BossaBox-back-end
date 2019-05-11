@@ -15,8 +15,7 @@ export class ToolsController {
   constructor(private toolService: ToolService) {}
 
   @Get()
-  index(@Query('tag') tag): Promise<ToolEntity | ToolEntity[]> {
-    console.log(tag);
+  index(@Query('tag') tag): Promise<ToolEntity[]> {
     if (!tag) return this.toolService.findAll();
     else return this.toolService.searchToolsByTag(tag);
   }

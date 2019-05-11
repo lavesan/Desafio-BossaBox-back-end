@@ -14,6 +14,6 @@ export class ToolEntity {
   @Column({ name: 'tool_description' })
   description: string;
 
-  @Column({ name: 'tool_tags' })
-  tags: string;
+  @Column('text', { name: 'tool_tags', array: true })
+  tags: string[];
 }
