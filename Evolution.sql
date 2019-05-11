@@ -1,4 +1,4 @@
-create database loja_ferramentas
+create if not exists database loja_ferramentas
 
 create table if not exists tool_info (
 	id serial,
