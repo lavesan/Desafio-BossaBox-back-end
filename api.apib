@@ -1,0 +1,132 @@
+FORMAT 1A
+HOST: http://localhost/
+
+# BossaBox back-end challenge
+
+A simple API to submit in the back-end challenge of BossaBox
+
+# Group Tools
+
+Operations in tool_info's table used in the challenge
+
+# Tools API Root [/]
+
+This path show an 'Hello world!'
++ Response 200 (text/html)
+    'Hello world!'
+
+## Tool Collection [/tools]
+
+### List Tool [GET]
+
+Returns all tools
+
+A Tool object has the following attributes.
+
+- id
+- title
+- link
+- description
+- tags (an array of string).
+
++ Response 200 (application/json)
+
+    [
+        {
+            "id": "1",
+            "title": "Notion", 
+            "link": "https://notion.so", 
+            "description": "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized.", 
+            "tags": [
+                'organization', 
+                'planning', 
+                'collaboration', 
+                'writing', 
+                'calendar'
+                ]
+        }
+    ]
+
+### Add Tool [POST]
+
+Creates a new tool. It must be passed on the body.
+
+- title (string)
+- link (string)
+- description (string)
+- tags (array[string])
+
++ Request (application/json)
+
+    {
+        "id": "1",
+        "title": "Notion", 
+        "link": "https://notion.so", 
+        "description": "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized.", 
+        "tags": [
+            'organization', 
+            'planning', 
+            'collaboration'
+            ]
+    }
+
++ Response 200 (application/json)
+
+    {
+        "id": "1",
+        "title": "Notion", 
+        "link": "https://notion.so", 
+        "description": "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized.", 
+        "tags": [
+            'organization', 
+            'planning', 
+            'collaboration'
+            ]
+    }
+
+
+## Filter Tool [/tools/{search}]
+
+### Tool Collection [GET]
+
+Gets the tools with some tag in tool_tags's array that matches the given tag
+
++ Parameters
+    + search (required, string) - Filtered tag
+
++ Response 200 (appliction/json)
+
+    [
+        {
+            "id": "1",
+            "title": "Notion", 
+            "link": "https://notion.so", 
+            "description": "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized.", 
+            "tags": [
+                'organization', 
+                'planning', 
+                'collaboration', 
+                'writing', 
+                'calendar'
+                ]
+        },{
+            "id": "2",
+            "title": "Notion", 
+            "link": "https://notion.so", 
+            "description": "All in one tool to organize teams and ideas. Write, plan, collaborate, and get organized.", 
+            "tags": [
+                'organization', 
+                'planning', 
+                'collaboration', 
+                'writing', 
+                'calendar'
+                ]
+        }
+    ]
+
+### Delete Tool [DELETE]
+
++ Parameters
+    + search (required, number) - Id of a tool in the format of an Integer
+    
++ Response 204
