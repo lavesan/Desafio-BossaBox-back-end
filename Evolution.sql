@@ -1,3 +1,5 @@
+create user postgres  with createdb password 'postgres'
+
 create if not exists database loja_ferramentas
 
 create table if not exists tool_info (
