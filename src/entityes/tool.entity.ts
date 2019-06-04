@@ -6,22 +6,22 @@ export class ToolEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @IsNotEmpty()
-  @MaxLength(20)
+  @IsNotEmpty({ message: 'o título não pode ser vazio' })
+  @MaxLength(20, { message: 'o título aceita no máximo 20 caracteres' })
   @Column({ name: 'tool_title' })
   title: string;
-  
-  @IsNotEmpty()
-  @MaxLength(100)
+
+  @IsNotEmpty({ message: 'o link não pode ser vazio' })
+  @MaxLength(100, { message: 'o link aceita no máximo 100 caracteres' })
   @Column({ name: 'tool_link' })
   link: string;
-  
-  @IsNotEmpty()
-  @MaxLength(250)
+
+  @IsNotEmpty({ message: 'a descrição não pode ser vazia' })
+  @MaxLength(250, { message: 'a descrição aceita no máximo 250 caracteres' })
   @Column({ name: 'tool_description' })
   description: string;
-  
-  @IsNotEmpty()
+
+  @IsNotEmpty({ message: 'as tags não podem ser vazias' })
   @Column('text', { name: 'tool_tags', array: true })
   tags: string[];
 }
