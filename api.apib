@@ -1,5 +1,5 @@
 FORMAT 1A
-HOST: http://localhost/
+HOST: http://localhost:3000/
 
 # BossaBox back-end challenge
 
@@ -130,3 +130,15 @@ Gets the tools with some tag in tool_tags's array that matches the given tag
     + search (required, number) - Id of a tool in the format of an Integer
     
 + Response 204
+
+# Data Structures
+
+## ToolEntity (object)
++ id (number) - Tool id
++ title (string)
++ link (string)
++ description (string)
++ tags (string[])
+
+## Error (object)
++ code: 400

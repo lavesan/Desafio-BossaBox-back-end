@@ -22,7 +22,7 @@ export class ToolsController {
   @Get()
   index(@Query('tag') tag): Promise<ToolEntity[]> {
     if (!tag) return this.toolService.findAll();
-    else return this.toolService.searchToolsByTag(tag);
+    else return this.toolService.findToolsByTag(tag);
   }
 
   /**

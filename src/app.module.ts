@@ -2,7 +2,9 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TestingModule } from '@nestjs/testing';
 import { ToolModule } from './tool/tool.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,7 +18,9 @@ import { ToolModule } from './tool/tool.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    TestingModule,
     ToolModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

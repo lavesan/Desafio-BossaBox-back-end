@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Repository, UpdateResult, DeleteResult, FindManyOptions } from 'typeorm';
+import { Repository, DeleteResult } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ToolEntity } from '../entityes/tool.entity';
 
@@ -10,7 +10,9 @@ export class ToolService {
     private toolRepository: Repository<ToolEntity>,
   ) {}
 
-  /**@description Find all tool columns */
+  /**
+   * @description Finds all tool columns 
+   */
   async findAll(): Promise<ToolEntity[]> {
     return await this.toolRepository.find();
   }
@@ -19,7 +21,7 @@ export class ToolService {
    * @description Find all columns with the given tag
    * @param {string} tags
    */
-  async searchToolsByTag(tags: string): Promise<any> {
+  async findToolsByTag(tags: string): Promise<any> {
     return await this.toolRepository.createQueryBuilder()
       .where("tool_tags @> array[:tags]::text[]", { tags })
       .getMany();
