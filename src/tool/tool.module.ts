@@ -5,20 +5,8 @@ import { ToolEntity } from '../entityes/tool.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-    imports: [
-    TypeOrmModule.forFeature([ToolEntity]),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'loja_ferramentas',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
-    }),
-    ToolModule,
-  ],
+  imports: [TypeOrmModule.forFeature([ToolEntity]), ToolModule],
   controllers: [ToolsController],
-  providers: [ToolService],})
+  providers: [ToolService],
+})
 export class ToolModule {}

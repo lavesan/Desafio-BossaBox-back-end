@@ -11,19 +11,20 @@ export class ToolService {
   ) {}
 
   /**
-   * @description Finds all tool columns 
+   * @description Finds all tool columns
    */
   async findAll(): Promise<ToolEntity[]> {
     return await this.toolRepository.find();
   }
 
   /**
-   * @description Find all columns with the given tag
+   * @description Finds all tools with the given tag
    * @param {string} tags
    */
   async findToolsByTag(tags: string): Promise<any> {
-    return await this.toolRepository.createQueryBuilder()
-      .where("tool_tags @> array[:tags]::text[]", { tags })
+    return await this.toolRepository
+      .createQueryBuilder()
+      .where('tool_tags @> array[:tags]::text[]', { tags })
       .getMany();
   }
 
@@ -36,7 +37,7 @@ export class ToolService {
   }
 
   /**
-   * @description Delete by id
+   * @description Delete tool by id
    * @param {number} id
    */
   async delete(id: number): Promise<DeleteResult> {
