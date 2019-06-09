@@ -1,5 +1,5 @@
 FORMAT 1A
-HOST: http://localhost:3000/
+HOST: http://localhost:3000
 
 # BossaBox back-end challenge
 
@@ -23,10 +23,10 @@ Returns all tools
 
 A Tool object has the following attributes.
 
-- id
-- title
-- link
-- description
+- id (number)
+- title (string)
+- link (string)
+- description (string)
 - tags (an array of string).
 
 + Response 200 (application/json)
@@ -51,10 +51,10 @@ A Tool object has the following attributes.
 
 Creates a new tool. It must be passed on the body.
 
-- title (string)
-- link (string)
-- description (string)
-- tags (array[string])
+- title (required, string)
+- link (required, string)
+- description (required, string)
+- tags (required, array[string])
 
 + Request (application/json)
 
@@ -84,17 +84,16 @@ Creates a new tool. It must be passed on the body.
             ]
     }
 
+## Filter Tool [/tools{?tag}]
 
-## Filter Tool [/tools/{search}]
-
-### Tool Collection [GET]
+### Filter Tool [GET]
 
 Gets the tools with some tag in tool_tags's array that matches the given tag
 
 + Parameters
-    + search (required, string) - Filtered tag
+    + tag (required, string) - Filtered tag
 
-+ Response 200 (appliction/json)
++ Response 200 (application/json)
 
     [
         {
@@ -124,12 +123,17 @@ Gets the tools with some tag in tool_tags's array that matches the given tag
         }
     ]
 
+## DeleteTool [/tools/{id}]
+
 ### Delete Tool [DELETE]
 
 + Parameters
-    + search (required, number) - Id of a tool in the format of an Integer
+    + id (required, number) - Id of a tool in the format of an Integer
     
-+ Response 204
++ Response 200
+
+    Status: 200
+    {}
 
 # Data Structures
 

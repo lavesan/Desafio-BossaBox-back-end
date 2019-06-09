@@ -25,7 +25,7 @@ export class ToolEntity {
   @Column('text', {
     name: 'tool_tags',
     array: true,
-    nullable: true,
+    nullable: false,
   })
   tags: string[];
 }

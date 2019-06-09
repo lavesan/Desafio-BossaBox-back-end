@@ -40,6 +40,12 @@ export class ToolsController {
    */
   @Delete(':id')
   async delete(@Param('id') id: number): Promise<any> {
-    return this.toolService.delete(id);
+    return this.toolService.delete(id).then((res) => {
+      if (res.affected) {
+        return 'Status: 200 OK\n{}';
+      } else {
+        return 'Status: 404 Not Found\n{}';
+      }
+    });
   }
 }
