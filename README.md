@@ -22,8 +22,3 @@ Pré-requisitos:
 ## Rotas
 
 Todas as informações de rotas estão no API Blueprint que está contido no diretório: apiBlueprint/api.apib neste projeto.
-
-## Testando
-
-1. Tenha feito até o passo 3 acima
-2. Execute **npm run test**
